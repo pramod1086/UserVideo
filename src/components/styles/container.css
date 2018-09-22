@@ -1,0 +1,16 @@
+.container {
+	border: 2px solid black;
+	margin : auto 15%;
+	height: 500px;
+	position: relative;
+	border-radius: 10px;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid black;
+}
