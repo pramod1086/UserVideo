@@ -1,8 +1,12 @@
 package com.pramod.user;
 
+import com.pramod.usergroup.UserGroup;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Set;
 
 @Entity
 
@@ -30,7 +34,8 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+	@ManyToMany
+	public Set<UserGroup> userGroupSet;
 	
 
 }

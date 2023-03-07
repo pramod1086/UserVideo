@@ -1,8 +1,12 @@
 package com.pramod.usergroup;
 
+import com.pramod.user.User;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Set;
 
 @Entity
 public class UserGroup {
@@ -22,5 +26,6 @@ public class UserGroup {
 	public void setUserGroupType(String userGroupType) {
 		this.userGroupType = userGroupType;
 	}
-
+	@ManyToMany
+	public Set<User> userSet;
 }
