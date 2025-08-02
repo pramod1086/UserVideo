@@ -17,7 +17,7 @@ public class ImageService {
             throws IOException {
 
         imageRepository.save(Image.builder()
-                .name(file.getOriginalFilename())
+                .imageName(file.getOriginalFilename())
                 .type(file.getContentType())
                 .image(ImageUtility.compressImage(file.getBytes())).build());
         String response = "Image uploaded successfully: " +
@@ -28,9 +28,9 @@ public class ImageService {
     public Image getImageDetails(String name) throws IOException {
 
         final Optional<Image> dbImage = imageRepository.findByName(name);
-        return ImageUtility.decompressImage(dbImage.get().getImage()).build();
-
-
+        return Image.builder()
+                .image(ImageUtility.decompressImage(dbImage.get().getImage()))
+                .build();
     }
     public  byte[] getImage(String name) throws IOException {
 
